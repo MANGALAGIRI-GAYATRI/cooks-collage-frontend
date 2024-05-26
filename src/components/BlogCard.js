@@ -10,7 +10,6 @@ import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Box, Button, IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
 import axios from "axios";
 
 export default function BlogCard({
@@ -33,7 +32,7 @@ export default function BlogCard({
     try {
       const { data } = await axios.delete(`https://cooks-collage.onrender.com/api/v1/blog/delete-blog/${id}`);
       if (data?.success) {
-        toast.success("Blog Deleted");
+        alert("Blog Deleted");
         window.location.reload();
       }
     } catch (error) {
